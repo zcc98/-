@@ -1,5 +1,5 @@
 import java.util.Random;
-class jisuan {
+class gushi3 {
 	static int b[]=new int[50];
 	static int c[]=new int[50];
 	private static short shengcheng(int i) {
@@ -13,12 +13,8 @@ class jisuan {
 		//输出算式
 		System.out.println("第"+(i+1)+"题:\t"+m+o+n+"=");
 	}
-	
-	private static void shuchujieguo(int i,int a){
-		//输出结果
-		System.out.println("第"+(i+1)+"题结果:\t"+a);
-	}
-	
+
+
 	private static int bijiao(int a){
 		int i;
 		for(i=0;i<50;i++){
@@ -31,6 +27,18 @@ class jisuan {
 		return a;
 	}
 	
+	private static int bijiao1(int a){
+		int i;
+		for(i=0;i<50;i++){
+			if(a==c[i]){
+				a=shengcheng(101);
+				bijiao1(a);
+				break;
+			}
+		}
+		return a;
+	}
+
 	public static void main(String[] args) {
 		short m=0,n=0,ov=0,sum=0;
 		char o='+';
@@ -40,24 +48,17 @@ class jisuan {
 			ov=shengcheng(2);
 			m=shengcheng(101);
 			b[i]=bijiao(m);
-			int x=101-m;             //限制m+n在100以内
-			n=shengcheng(x);
-			if(m-n>=0){              //限制m-n不小于0
-				if(ov==1){                
-					o='+';
-					sum=(short) (m+n);
-				}
-				else {
-					o='-';
-					sum=(short) (m-n);
-				}
-			a[i]=sum;
+			n=shengcheng(101);
+			c[i]=bijiao1(n);
+			if(ov==1){                
+				o='+';
+			}
+			else {
+				o='-';
+			}
 			//输出算式
 			shuchusuanshi(i,m,o,n);
-			//输出结果
-			shuchujieguo(i,a[i]);
 			i++;
-			}
 		}
 
 	}
