@@ -1,5 +1,5 @@
 import java.util.Random;
-class jisuan {
+class gushi2 {
 	private static short shengcheng(int i) {
 		// 生成随机数
 		Random random=new Random();
@@ -7,15 +7,15 @@ class jisuan {
 		return s;
 	}
 
-	private static void shuchusuanshi(int i,short m,char o,short n){
-		//输出算式
-		System.out.println("第"+(i+1)+"题:\t"+m+o+n+"=");
+	private static void shuchusuanshi(int i,short m,char o,short n,int a){
+		//输出算式和结果
+		int x=i+1;
+		if(x%5==0){
+			System.out.println("第"+(i+1)+"题:"+m+o+n+"="+a+"\t");
+		}
+		else System.out.print("第"+(i+1)+"题:"+m+o+n+"="+a+"\t");
 	}
 	
-	private static void shuchujieguo(int i,int a){
-		//输出结果
-		System.out.println("第"+(i+1)+"题结果:\t"+a);
-	}
 	
 	public static void main(String[] args) {
 		short m=0,n=0,ov=0,sum=0;
@@ -37,10 +37,8 @@ class jisuan {
 					sum=(short) (m-n);
 				}
 			a[i]=sum;
-			//输出算式
-			shuchusuanshi(i,m,o,n);
-			//输出结果
-			shuchujieguo(i,a[i]);
+			//输出算式和结果
+			shuchusuanshi(i,m,o,n,a[i]);
 			i++;
 			}
 		}
