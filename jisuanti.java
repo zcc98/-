@@ -1,5 +1,7 @@
 import java.util.Random;
 class jisuan {
+	static int b[]=new int[50];
+	static int c[]=new int[50];
 	private static short shengcheng(int i) {
 		// 生成随机数
 		Random random=new Random();
@@ -17,6 +19,18 @@ class jisuan {
 		System.out.println("第"+(i+1)+"题结果:\t"+a);
 	}
 	
+	private static int bijiao(int a){
+		int i;
+		for(i=0;i<50;i++){
+			if(a==b[i]){
+				a=shengcheng(101);
+				bijiao(a);
+				break;
+			}
+		}
+		return a;
+	}
+	
 	public static void main(String[] args) {
 		short m=0,n=0,ov=0,sum=0;
 		char o='+';
@@ -25,6 +39,7 @@ class jisuan {
 		for (int i=0;i<50;){
 			ov=shengcheng(2);
 			m=shengcheng(101);
+			b[i]=bijiao(m);
 			int x=101-m;             //限制m+n在100以内
 			n=shengcheng(x);
 			if(m-n>=0){              //限制m-n不小于0
